@@ -1,6 +1,6 @@
 # Newyork-Times-News-App
 
-###### This Application is build on a Multi modules, MVVM,CLEAN architecture 
+###### This Application is build on a Multi modules using MVVM, Clean Architecture approaches 
 
 The Approach to write this software is pretty much in an isolated way. Below are the brief description of the modules in the software
 
