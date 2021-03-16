@@ -19,7 +19,7 @@ import com.nytimes.newsapp.common.extensions.invisible
 import com.nytimes.newsapp.common.extensions.visible
 
 
-abstract class BaseFragment : Fragment(){
+abstract class BaseFragment : Fragment() {
 
     //region Props
     protected var binding: ViewDataBinding? = null
@@ -51,11 +51,8 @@ abstract class BaseFragment : Fragment(){
 
 
     //region Toast Message
-    private fun showMessage(
-        messageBody: String,
-        onClick: (String) -> Unit ={}
-    ) {
-        Toast.makeText(context,messageBody,Toast.LENGTH_LONG).show()
+    open fun showMessage(messageBody: String) {
+        Toast.makeText(context, messageBody, Toast.LENGTH_LONG).show()
     }
     //endregion
 
@@ -90,7 +87,8 @@ abstract class BaseFragment : Fragment(){
     protected open fun attachListeners() {
 
     }
-    abstract fun  initialize (savedInstanceState:Bundle?)
+
+    abstract fun initialize(savedInstanceState: Bundle?)
     //endregion
 
     //region Fragment Title and Subtitle

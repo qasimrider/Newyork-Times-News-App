@@ -7,6 +7,18 @@
         android:icon="@drawable/ic_refresh"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/daily"
+        android:title="Daily"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/weekly"
+        android:title="Weekly"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/monthly"
+        android:title="Monthly"
+        app:showAsAction="collapseActionView" />
 
 
 </menu>

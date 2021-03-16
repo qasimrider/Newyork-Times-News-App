@@ -5,8 +5,7 @@ import com.nytimes.newsapp.common.error.ErrorEntity
 import com.nytimes.newsapp.common.singleLiveData.SingleLiveEvent
 
 abstract class BaseViewModel() : ViewModel() {
-    var errorEntity: SingleLiveEvent<ErrorEntity> =
-        SingleLiveEvent() // the failure should just emit once. We don't want failures to emit when an observer resubscribes to this property.
+    var errorEntity: SingleLiveEvent<ErrorEntity> = SingleLiveEvent()
     var operationStatus: SingleLiveEvent<Operation> = SingleLiveEvent()
 
     protected fun handleFailure(errorEntity: ErrorEntity) {

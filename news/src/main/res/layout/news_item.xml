@@ -13,10 +13,11 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:transitionName="@{@string/news_item_transition_name(news.id)}"
-        app:cardBackgroundColor="?attr/colorPrimaryVariant"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="5dp"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -45,9 +46,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/open_sans_bold"
-                android:lines="3"
                 android:text="@{news.title}"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/newsCiv"
                 app:layout_constraintTop_toTopOf="parent"
@@ -59,26 +59,40 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@{news.authors}"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/newsDescription"
                 app:layout_constraintStart_toStartOf="@+id/newsDescription"
                 app:layout_constraintTop_toBottomOf="@+id/newsDescription" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/dateeView"
+                android:id="@+id/dateView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 android:drawablePadding="8dp"
+                android:drawableTint="@color/black"
                 android:gravity="center_vertical"
                 android:text="@{news.date}"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/black"
                 app:drawableStartCompat="@drawable/ic_calendar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/authorName"
                 app:layout_constraintTop_toBottomOf="@+id/authorName"
                 tools:text="20-12-2030" />
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:background="@color/grey"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/dateView" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

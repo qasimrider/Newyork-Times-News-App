@@ -25,12 +25,17 @@ import com.nytimes.newsapp.news.R
 import com.nytimes.newsapp.news.databinding.FragmentNewsListBinding
 import com.nytimes.newsapp.news.viewModel.NewsViewModel
 
+const val DAILY = 1
+const val WEEKLY = 7
+const val MONTHLY = 30
+
 class NewsListFragment() : BaseFragment() {
 
     //region Props
     override var shouldBindData: Boolean = true
     private lateinit var viewBinding: FragmentNewsListBinding
     private val adapter = GeneralAdapter(BR.news, R.layout.news_item, NewsView.DIFF_CALLBACK)
+    private var lastPeriod: Int = DAILY
     //endregion
 
     //region Koin Injects
@@ -38,11 +43,10 @@ class NewsListFragment() : BaseFragment() {
 
     //endregion
 
-    //region Fragment Overrides
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        newsViewModel.fetchMostViewedNews(GetMostViewedNews.Params("all-sections", DAILY))
 
-        newsViewModel.fetchMostViewedNews(GetMostViewedNews.Params("all-sections", 30))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,7 +78,6 @@ class NewsListFragment() : BaseFragment() {
 
             observe(mostViewedNews)
             {
-                //only commit the largest picture from the array , so as to smoothly show the transitions between this screen and the detail
                 it.forEach {
                     val largestPicture = PictureUtil.findLargestImage(it.pictures)
                     it.largestPicture = largestPicture
@@ -95,23 +98,71 @@ class NewsListFragment() : BaseFragment() {
     }
     //endregion
 
-
-
     // region option menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.news_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.refresh -> {
-                newsViewModel.fetchMostViewedNews(GetMostViewedNews.Params("all-sections", 7))
+                newsViewModel.fetchMostViewedNews(
+                    GetMostViewedNews.Params(
+                        "all-sections",
+                        lastPeriod
+                    )
+                )
+            }
+            R.id.daily -> {
+                if (lastPeriod != DAILY) {
+                    lastPeriod = DAILY
+                    newsViewModel.fetchMostViewedNews(
+                        GetMostViewedNews.Params(
+                            "all-sections",
+                            DAILY
+                        )
+                    )
+                } else {
+                    showMessage(getString(R.string.already_updated))
+                }
+
+
+            }
+            R.id.weekly -> {
+                if (lastPeriod != WEEKLY) {
+                    lastPeriod = WEEKLY
+                    newsViewModel.fetchMostViewedNews(
+                        GetMostViewedNews.Params(
+                            "all-sections",
+                            WEEKLY
+                        )
+                    )
+
+                } else {
+                    showMessage(getString(R.string.already_updated))
+                }
+
+            }
+            R.id.monthly -> {
+                if (lastPeriod != MONTHLY) {
+                    lastPeriod = MONTHLY
+                    newsViewModel.fetchMostViewedNews(
+                        GetMostViewedNews.Params(
+                            "all-sections",
+                            MONTHLY
+                        )
+                    )
+                } else {
+                    showMessage(getString(R.string.already_updated))
+                }
+
+
             }
         }
 
         return super.onOptionsItemSelected(item)
     }
-    //endregion
     //endregion
 
     //region Base Overrides
@@ -127,7 +178,6 @@ class NewsListFragment() : BaseFragment() {
     override fun initialize(savedInstanceState: Bundle?) {
         viewBinding = binding as FragmentNewsListBinding
         progressBar = viewBinding.progressBar
-
         viewBinding.newsRv.configureVerticalList(adapter)
         setScreenTitle(getString(R.string.ny_times), getString(R.string.most_popular))
         attachObservers()

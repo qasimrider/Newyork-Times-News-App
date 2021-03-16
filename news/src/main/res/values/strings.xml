@@ -1,5 +1,6 @@
 <resources>
 
-    <string name="news_item_detail_transition_name">news_detail_transition</string>
     <string name="news_item_transition_name">news_item_%1$s</string>
+    <string name="already_updated">Already Selected</string>
+    <string name="news_item_detail_transition_name">news_detail_transition</string>
 </resources>
