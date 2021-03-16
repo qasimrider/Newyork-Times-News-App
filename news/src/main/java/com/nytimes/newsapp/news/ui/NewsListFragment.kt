@@ -2,6 +2,9 @@ package com.nytimes.newsapp.news.ui
 
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.doOnPreDraw
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -39,7 +42,7 @@ class NewsListFragment() : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        newsViewModel.fetchMostViewedNews(GetMostViewedNews.Params("all-sections", 7))
+        newsViewModel.fetchMostViewedNews(GetMostViewedNews.Params("all-sections", 30))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -90,6 +93,25 @@ class NewsListFragment() : BaseFragment() {
             fault(errorEntity, ::handleFailure)
         }
     }
+    //endregion
+
+
+
+    // region option menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.news_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.refresh -> {
+                newsViewModel.fetchMostViewedNews(GetMostViewedNews.Params("all-sections", 7))
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+    //endregion
     //endregion
 
     //region Base Overrides
