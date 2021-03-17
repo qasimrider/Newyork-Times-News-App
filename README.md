@@ -59,6 +59,11 @@ In this module the repositories of all the application is embedded
 1. populating business module
 
 
+## Gradle's Kotlin DSL
+Gradle’s Kotlin DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
+
+## buildSrc 
+A special module within the project to manage dependencies and whatnot.
 
 
 
