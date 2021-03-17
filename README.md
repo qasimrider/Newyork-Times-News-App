@@ -69,6 +69,4 @@ A special module within the project to manage dependencies and whatnot.
 
 ## Test cases
 The following test cases were performed
-1. NewsRepositoryTest - Repository Test
-2. GetMostViewedNewsTest - Use case Test
-3. FakeNewsList - Fragment Navigation Test
+1. NewsDetailsTestCase 
