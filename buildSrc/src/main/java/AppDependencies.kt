@@ -66,9 +66,11 @@ object AppDependencies {
     //endregion
 
     //region Testing
+    private val mockito = "org.mockito:mockito-core:${Versions.mockito}"
     private val junit = "junit:junit:${Versions.junit}"
     private val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
     private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    private val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
     //endregion
 
     //region Image Libs
@@ -115,10 +117,12 @@ object AppDependencies {
     val androidTestLibraries = arrayListOf<String>().apply {
         add(extJUnit)
         add(espressoCore)
+        add(fragmentTesting)
     }
 
     val testLibraries = arrayListOf<String>().apply {
         add(junit)
+        add(mockito)
     }
 }
 

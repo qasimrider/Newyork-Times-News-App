@@ -23,11 +23,8 @@ android {
 
     defaultConfig {
         applicationId = "com.nytimes.newsapp"
-        minSdkVersion(AppConfig.minSdk)
-        targetSdkVersion(AppConfig.targetSdk)
         versionCode(AppConfig.versionCode)
         versionName(AppConfig.versionName)
-        testInstrumentationRunner(AppConfig.androidTestInstrumentation)
 
     }
     buildTypes {

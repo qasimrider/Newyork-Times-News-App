@@ -25,6 +25,8 @@ object Versions {
 
     //test
     val junit = "4.12"
+    val mockito = "2.25.0"
     val extJunit = "1.1.1"
     val espresso = "3.2.0"
+    val fragmentTesting = "1.3.1"
 }

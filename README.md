@@ -4,7 +4,10 @@
 
 The Approach to write this software is pretty much in an isolated way. Below are the brief description of the modules in the software
 
-
+## Core Libs
+1. Koin for DI
+2. Jetpack Architecture components
+3. Kotlin DSL for Gradle dependencies
 
 ## App 
 This is the Gateway to the whole application containing DI Initialization and in our case it contain MainActivity and Guest Fragment to host the application.

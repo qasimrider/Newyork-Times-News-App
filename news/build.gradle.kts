@@ -17,10 +17,16 @@ dependencies {
     implementation(AppDependencies.appLibraries)
     implementation(AppDependencies.imageLibs)
 
+
+    implementation(AppDependencies.testLibraries)
+    implementation(AppDependencies.androidTestLibraries)
+
     implementation(project(":common"))
     implementation(project(":business"))
     implementation(project(":dtos"))
-//    implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
-//    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+
+    kaptTest("androidx.databinding:databinding-compiler:7.0.0-alpha10")
+    kaptAndroidTest("androidx.databinding:databinding-compiler:4.1.2")
+
 
 }

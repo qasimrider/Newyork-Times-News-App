@@ -6,7 +6,11 @@ subprojects {
                 defaultConfig {
                     minSdkVersion(AppConfig.minSdk)
                     targetSdkVersion(AppConfig.targetSdk)
+                    testInstrumentationRunner(AppConfig.androidTestInstrumentation)
+
                 }
+
+
 
 
                 buildTypes {

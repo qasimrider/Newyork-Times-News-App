@@ -34,7 +34,7 @@
                 android:id="@+id/view1"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:background="?attr/colorSurface"
+                android:background="@color/red_700"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,13 +43,13 @@
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:background="?attr/colorSurface"
+                android:background="@color/red_700"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/newsTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -76,8 +76,8 @@
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/newsTitle"
+                app:layout_constraintTop_toBottomOf="@+id/newsTitle"
                 tools:text="This ist he description of the News"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
