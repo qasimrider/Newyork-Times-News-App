@@ -49,11 +49,11 @@ object AppDependencies {
     //endregion
 
     //region Androidx
-    private val scopeAndroidx = "org.koin:koin-androidx-scope:${Versions.androidx}"
-    private val viewModelAndroidx = "org.koin:koin-androidx-viewmodel:${Versions.androidx}"
-    private val fragmentAndroidx =  "org.koin:koin-androidx-fragment:${Versions.androidx}"
-    private val koinAndroid =  "org.koin:koin-android:${Versions.androidx}"
-//    private val extensionsAndroidx =  "org.koin:koin-androidx-ext:${Versions.androidx}"
+//    private val scopeAndroidx = "io.insert-koin:koin-androidx-scope:${Versions.androidx}"
+//    private val viewModelAndroidx = "io.insert-koin:koin-androidx-viewmodel:${Versions.androidx}"
+//    private val fragmentAndroidx =  "io.insert-koin:koin-androidx-fragment:${Versions.androidx}"
+    private val koinAndroid =  "io.insert-koin:koin-android:${Versions.androidx}"
+//    private val extensionsAndroidx =  "io.insert-koin:koin-androidx-ext:${Versions.androidx}"
     //endregion
 
     //region Expandable Recyclerview
@@ -95,8 +95,8 @@ object AppDependencies {
         add(retrofit2)
         add(retrofitConverter)
         add(retrofitLogging)
-        add(viewModelAndroidx)
-        add(fragmentAndroidx)
+//        add(viewModelAndroidx)
+//        add(fragmentAndroidx)
         add(koinAndroid)
 //        add(extensionsAndroidx)
         add(retrofitLogging)

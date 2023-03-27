@@ -4,6 +4,7 @@ import com.nytimes.newsapp.common.base.BaseViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
 import com.nytimes.newsapp.business.news.usecase.GetMostViewedNews
 import com.nytimes.newsapp.dtos.news.NewsView
 
@@ -18,6 +19,8 @@ class NewsViewModel( private val getMostViewedNews: GetMostViewedNews) :
 
     //region Network Calls
     fun fetchMostViewedNews(params: GetMostViewedNews.Params) {
+
+        val gson = Gson().fromJson("",NewsView::class.java)
         operationStatus.value = Operation.Started
         getMostViewedNews(viewModelScope,params) {
             it.either(::handleFailure)
