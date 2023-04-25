@@ -20,7 +20,6 @@ class NewsViewModel( private val getMostViewedNews: GetMostViewedNews) :
     //region Network Calls
     fun fetchMostViewedNews(params: GetMostViewedNews.Params) {
 
-        val gson = Gson().fromJson("",NewsView::class.java)
         operationStatus.value = Operation.Started
         getMostViewedNews(viewModelScope,params) {
             it.either(::handleFailure)

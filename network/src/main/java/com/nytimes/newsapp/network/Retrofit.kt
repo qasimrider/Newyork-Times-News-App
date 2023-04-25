@@ -4,6 +4,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.nytimes.newsapp.common.error.ErrorEntity
 import com.nytimes.newsapp.common.functional.Either
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import retrofit2.Call
 
 
@@ -42,6 +44,24 @@ fun <T, R> Call<T>.requestBlocking(transform: (T) -> R): Either<ErrorEntity, R> 
 
     }
 
+}
+
+suspend fun <T, R> Call<T>.requestFlow(transform: (T) -> R): Flow<Either<ErrorEntity, R>> = flow {
+    try {
+        val response = execute()
+        if (response.isSuccessful) {
+            val result = response.body()
+            if (result != null) {
+                emit(Either.Right(transform(result)))
+            } else {
+                emit(Either.Left(generalErrorImplementation.getHttpErrors(response)))
+            }
+        } else {
+            emit(Either.Left(generalErrorImplementation.getHttpErrors(response)))
+        }
+    } catch (e: Exception) {
+        emit(Either.Left(generalErrorImplementation.getError(e)))
+    }
 }
 
 
